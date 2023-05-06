@@ -1,3 +1,6 @@
-.w-50 {
-    width: 41vw!important;
+.container {
+    background-color: rgb(243, 238, 238);
+    margin: 10px;
+    padding: 7px;
+    border-radius: 5px;
 }
