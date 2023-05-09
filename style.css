@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -29,3 +30,8 @@ footer {
 .dropdown-col {
   background-color: #c0dbea;
 }
+
+.w-50 {
+    width: 41vw!important;
+}
+
