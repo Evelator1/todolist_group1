@@ -18,9 +18,10 @@
 
   <body>
     <header>
+      <!-- NAVBAR -->
       <nav
         class="navbar navbar-expand-lg navbar-light p-0"
-        style="background-color: bisque"
+        style="background-color: #c0dbea"
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
@@ -85,57 +86,49 @@
     </header>
 
     <main>
+      <!-- DROPDOWN -->
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-4 pt-5 mt-3 mb-3" style="background-color: bisque">
-            <div class="dropdown">
+        <div class="row row1 mt-3">
+          <div
+            class="col-4 col-xl-2 dropdown-col d-flex justify-content-center mb-4"
+          >
+            <div class="dropdown pt-5">
               <a
-                class="body-link dropdown-toggle text-decoration-none"
-                href="#"
-                id="bodyDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                style="color: black"
-                ><h4>Show tasks by</h4>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="bodyDropdown">
-                <li><a class="dropdown-item" href="#">Day</a></li>
-                <li><a class="dropdown-item" href="#">Week</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Month</a>
-                </li>
-              </ul>
-            </div>
-            <!--  
-            <div class="dropdown show">
-              <a
-                class="btn btn-secondary dropdown-toggle"
+                class="btn dropdown-toggle"
                 href="#"
                 role="button"
                 id="dropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
+                data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown link
+                <h4>Sort your tasks by:</h4>
               </a>
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </div>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Day</a></li>
+                <li><a class="dropdown-item" href="#">Week</a></li>
+                <li><a class="dropdown-item" href="#">Month</a></li>
+                <li><a class="dropdown-item" href="#">Category</a></li>
+              </ul>
             </div>
-            -->
           </div>
-          <div class="col-8"></div>
+          <div class="col-8">
+            <iframe class="border-0" id="iframe" src=""></iframe>
+          </div>
         </div>
       </div>
     </main>
-    <footer></footer>
+
+    <footer>
+      <div class="row">
+        <div class="col-12 text-footer">
+          <p>Made with ♥️ by Omar, Joram and Marie</p>
+          <p>Copyrights</p>
+          <p>Download App</p>
+          <p>Contact Us</p>
+        </div>
+      </div>
+    </footer>
 
     <!-- Javascript -->
 

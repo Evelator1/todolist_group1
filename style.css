@@ -1,3 +1,31 @@
-.col-4 {
-  height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fdf4f5;
+}
+
+footer {
+  background-color: #c0dbea;
+  height: 80px;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  margin-top: 20px;
+}
+
+#iframe {
+  height: 42rem;
+  position: relative;
+}
+
+.text-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+.dropdown-col {
+  background-color: #c0dbea;
 }
