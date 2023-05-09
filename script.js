@@ -22,7 +22,7 @@ const savedOptions3 = localStorage.getItem("selectList3Options");
 // If saved options are found, parse them into an array and add them to the corresponding select list
 if (savedOptions1) {
   const optionsArray = JSON.parse(savedOptions1);
-  optionsArray.forEach(function(option) {
+  optionsArray.forEach(function (option) {
     const newOption = document.createElement("option");
     newOption.text = option;
     selectList1.add(newOption);
@@ -31,7 +31,7 @@ if (savedOptions1) {
 
 if (savedOptions2) {
   const optionsArray = JSON.parse(savedOptions2);
-  optionsArray.forEach(function(option) {
+  optionsArray.forEach(function (option) {
     const newOption = document.createElement("option");
     newOption.text = option;
     selectList2.add(newOption);
@@ -39,7 +39,7 @@ if (savedOptions2) {
 }
 if (savedOptions3) {
   const optionsArray = JSON.parse(savedOptions3);
-  optionsArray.forEach(function(option) {
+  optionsArray.forEach(function (option) {
     const newOption = document.createElement("option");
     newOption.text = option;
     selectList3.add(newOption);
@@ -47,7 +47,7 @@ if (savedOptions3) {
 }
 
 // Add an event listener to the first add button
-addButton1.addEventListener("click", function() {
+addButton1.addEventListener("click", function () {
   // Get the new value from the input field
   const newValue = inputField1.value;
 
@@ -61,14 +61,14 @@ addButton1.addEventListener("click", function() {
   modal1.hide();
 
   // Save the updated options to the local storage for the first select list
-  const optionsArray = Array.from(selectList1.options).map(function(option) {
+  const optionsArray = Array.from(selectList1.options).map(function (option) {
     return option.text;
   });
   localStorage.setItem("selectList1Options", JSON.stringify(optionsArray));
 });
 
 // Add an event listener to the second add button
-addButton2.addEventListener("click", function() {
+addButton2.addEventListener("click", function () {
   // Get the new value from the input field
   const newValue = inputField2.value;
 
@@ -82,14 +82,14 @@ addButton2.addEventListener("click", function() {
   modal2.hide();
 
   // Save the updated options to the local storage for the second select list
-  const optionsArray = Array.from(selectList2.options).map(function(option) {
+  const optionsArray = Array.from(selectList2.options).map(function (option) {
     return option.text;
   });
   localStorage.setItem("selectList2Options", JSON.stringify(optionsArray));
 });
 
 // Add an event listener to the second add button
-addButton3.addEventListener("click", function() {
+addButton3.addEventListener("click", function () {
   // Get the new value from the input field
   const newValue = inputField3.value;
 
@@ -103,7 +103,7 @@ addButton3.addEventListener("click", function() {
   modal3.hide();
 
   // Save the updated options to the local storage for the second select list
-  const optionsArray = Array.from(selectList3.options).map(function(option) {
+  const optionsArray = Array.from(selectList3.options).map(function (option) {
     return option.text;
   });
   localStorage.setItem("selectList3Options", JSON.stringify(optionsArray));
@@ -111,4 +111,10 @@ addButton3.addEventListener("click", function() {
 
 //********************************************************************************************* */
 
+const tasks = document.querySelector(".dropdown-menu");
+const tasksIframe = document.querySelector("#iframe");
 
+tasks.addEventListener("change", function () {
+  const selectedTask = tasks.value;
+  tasksIframe.src = selectedTasks;
+});

@@ -1,11 +1,9 @@
-
 .container {
-    background-color: rgb(243, 238, 238);
-    margin: 10px;
-    padding: 7px;
-    border-radius: 5px;
+  background-color: rgb(243, 238, 238);
+  margin: 10px;
+  padding: 7px;
+  border-radius: 5px;
 }
-
 
 body {
   margin: 0;
@@ -18,13 +16,13 @@ footer {
   height: 80px;
   bottom: 0;
   width: 100%;
-  position: absolute;
+  position: relative;
   margin-top: 20px;
 }
 
 #iframe {
-  height: 42rem;
-  position: relative;
+  height: 90vh;
+  width: 100%;
 }
 
 .text-footer {
@@ -40,7 +38,11 @@ footer {
 }
 
 .w-50 {
-    width: 41vw!important;
+  width: 41vw !important;
 }
 
-
+.btn-md {
+  height: 38px;
+  width: 38px;
+  font-size: 20px;
+}
