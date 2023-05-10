@@ -1,0 +1,48 @@
+.container {
+  background-color: rgb(243, 238, 238);
+  margin: 10px;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fdf4f5;
+}
+
+footer {
+  background-color: #c0dbea;
+  height: 80px;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+#iframe {
+  height: 90vh;
+  width: 100%;
+}
+
+.text-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+.dropdown-col {
+  background-color: #c0dbea;
+}
+
+.w-50 {
+  width: 41vw !important;
+}
+
+.btn-md {
+  height: 38px;
+  width: 38px;
+  font-size: 20px;
+}

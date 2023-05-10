@@ -15,5 +15,146 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+
+  <body>
+    <header>
+      <!-- NAVBAR -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light p-0"
+        style="background-color: #c0dbea"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./images/Logo.png" alt="Rundes Logo" width="100px" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 p-4">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Your lists
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Family</a></li>
+                  <li><a class="dropdown-item" href="#">Work</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Personal</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- DROPDOWN -->
+      <div class="container-fluid">
+        <div class="row row1 mt-3">
+          <div
+            class="col-4 col-xl-2 dropdown-col d-flex justify-content-center mb-4"
+          >
+            <div class="dropdown pt-5">
+              <a
+                class="btn dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <h4>Sort your tasks by:</h4>
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a class="dropdown-item-1" href="./listodo.html">Day</a>
+                </li>
+                <li>
+                  <a class="dropdown-item-2" href="./listodo.html">Week</a>
+                </li>
+                <li>
+                  <a class="dropdown-item-3" href="./listodo.html">Month</a>
+                </li>
+                <li>
+                  <a class="dropdown-item-4" href="./listodo.html">Category</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-8">
+            <iframe
+              class="border-0"
+              id="iframe"
+              src="./form.html"
+              width="100%"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="row">
+        <div class="col-12 text-footer">
+          <p>Made with ♥️ by Omar, Joram and Marie</p>
+          <p>Copyrights</p>
+          <p>Download App</p>
+          <p>Contact Us</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Javascript -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
