@@ -1,23 +1,18 @@
 // Get references to the two select lists and their corresponding add buttons
-const form = document.querySelector("#myForm")
-const nameInput=document.querySelector("#taskNames")
-  const dateInput = document.querySelector("#date");
+const form = document.querySelector("#myForm");
+const nameInput = document.querySelector("#taskNames");
+const dateInput = document.querySelector("#date");
 const selectList1 = document.getElementById("categoryList");
 const addButton1 = document.getElementById("addValue1");
 const selectList2 = document.getElementById("priorityList");
 const addButton2 = document.getElementById("addValue2");
 const selectList3 = document.getElementById("statusList");
 const addButton3 = document.getElementById("addValue3");
-const descriptionInput= document.querySelector("#description");
-const resultColumn =document.getElementById("output")
-// const outputDiv1 = document.querySelector("#output1")
-// const outputDiv2 = document.querySelector("#output2")
-// const outputDiv3 = document.querySelector("#output3")
-// const outputDiv4 = document.querySelector("#output4")
-// const outputDiv5 = document.querySelector("#output5")
-// const outputDiv6 = document.querySelector("#output6")
-const outputDiv9 = document.querySelector("#output9")
-const submit=document.querySelector("#submit")
+const descriptionInput = document.querySelector("#description");
+const resultColumn = document.getElementById("output");
+const outputDiv9 = document.querySelector("#output9");
+const submit = document.querySelector("#submit");
+const img = document.getElementById("relaxImg");
 
 // Get references to the two form input fields and their corresponding modals
 const inputField1 = document.getElementById("valueInput1");
@@ -101,7 +96,7 @@ addButton2.addEventListener("click", function () {
   localStorage.setItem("selectList2Options", JSON.stringify(optionsArray));
 });
 
-// Add an event listener to the second add button
+// Add an event listener to the third add button
 addButton3.addEventListener("click", function () {
   // Get the new value from the input field
   const newValue = inputField3.value;
@@ -121,50 +116,40 @@ addButton3.addEventListener("click", function () {
   });
   localStorage.setItem("selectList3Options", JSON.stringify(optionsArray));
 });
-
-//********************************************************************************************* */
-
-// const tasks = document.querySelector(".dropdown-menu");
-// const tasksIframe = document.querySelector("#iframe");
-
-// tasks.addEventListener("change", function () {
-//   const selectedTask = tasks.value;
-//   tasksIframe.src = selectedTasks;
-// });
-
-// **************************************************************
+// *************************************************************************************************
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const id = new Date().getTime();
   const name = nameInput.value;
-  const date =dateInput.value;
-  const cat=selectList1.value;
-  const priority=selectList2.value;
-  const status=selectList3.value;
-  const description=descriptionInput.value;
+  const date = dateInput.value;
+  const cat = selectList1.value;
+  const priority = selectList2.value;
+  const status = selectList3.value;
+  const description = descriptionInput.value;
 
 
-  const toDo = document.createElement("div");//Mother
+
+  const toDo = document.createElement("div");
   const nameP = document.createElement("p");
   const dateP = document.createElement("p");
   const catP = document.createElement("p");
   const priorityP = document.createElement("p");
   const statusP = document.createElement("p");
   const descriptionP = document.createElement("p");
-  const deleteBtn=document.createElement("button")
-  const editBtn=document.createElement("button")
-  
-  toDo.classList.add("row")
-  nameP.classList.add("col-2")
-  dateP.classList.add("col-2")
-  catP.classList.add("col-1")
-  priorityP.classList.add("col-1")
-  statusP.classList.add("col-1")
-  descriptionP.classList.add("col-3")
-  deleteBtn.classList.add("col-1")
-  editBtn.classList.add("col-1")
+  const deleteBtn = document.createElement("button");
+  const editBtn = document.createElement("button");
 
+  toDo.classList.add("row");
+  nameP.classList.add("col-2");
+  dateP.classList.add("col-1");
+  catP.classList.add("col-1");
+  priorityP.classList.add("col-1");
+  statusP.classList.add("col-1");
+  descriptionP.classList.add("col-3");
+  deleteBtn.classList.add("col-1");
+  editBtn.classList.add("col-1");
 
   nameP.textContent = `${name}`;
   dateP.textContent = `${date}`;
@@ -172,55 +157,187 @@ form.addEventListener("submit", (e) => {
   priorityP.textContent = `${priority}`;
   statusP.textContent = `${status}`;
   descriptionP.textContent = `${description}`;
+  deleteBtn.innerText = "Delete";
+  editBtn.innerText = "Edit";
+  dateP.style.fontSize = "10px";
+  priorityP.style.textAlign = "center";
+  editBtn.style.backgroundColor = "gray";
+  editBtn.style.border = "1px solid";
+  editBtn.style.marginBottom = "19px";
+  editBtn.style.borderRadius = "19px";
+  editBtn.style.width = "60px";
+  editBtn.style.fontSize = "10px";
+  deleteBtn.style.backgroundColor = "gray";
+  deleteBtn.style.border = "1px solid";
+  deleteBtn.style.marginRight = "5px";
+  deleteBtn.style.marginBottom = "19px";
+  deleteBtn.style.borderRadius = "19px";
+  deleteBtn.style.width = "60px";
+  deleteBtn.style.fontSize = "10px";
+
   deleteBtn.addEventListener("click", () => {
-    // const parentDiv = deleteBtn.parentNode;
-    // parentDiv.parentNode.removeChild(parentDiv);
-  
-    // Remove the last child element from the parent element
-    // const outputDiv9 = document.getElementById("output-div9");
-    outputDiv9.removeChild(outputDiv9.lastChild);
-  });
+    // Remove from localStorage
+    const todos = JSON.parse(localStorage.getItem("todos")) || [];
+    const filteredTodos = todos.filter(
+      (todo) =>
+        todo.name !== name ||
+        todo.date !== date ||
+        todo.cat !== cat ||
+        todo.priority !== priority ||
+        todo.status !== status ||
+        todo.description !== description||
+        todo.id !== id
+
+    );
+    localStorage.setItem("todos", JSON.stringify(filteredTodos));
+
+    // Remove from outputDiv9
+    outputDiv9.removeChild(toDo);
+    // location.reload();
     
-  })
+  });
+
+ 
 
   toDo.appendChild(nameP);
   toDo.appendChild(dateP);
-  toDo.appendChild(catP)
-  toDo.appendChild(priorityP)
-  toDo.appendChild(statusP)
-  toDo.appendChild(descriptionP)
-  toDo.appendChild(deleteBtn)
-  outputDiv9.appendChild(toDo)
+  toDo.appendChild(catP);
+  toDo.appendChild(priorityP);
+  toDo.appendChild(statusP);
+  toDo.appendChild(descriptionP);
+  toDo.appendChild(deleteBtn);
+  toDo.appendChild(editBtn);
+  outputDiv9.prepend(toDo);
 
+  // Store in localStorage
+  const todo = { name, date, cat, priority, status, description,id};
+  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
 
-  // Optionally, you can clear the form inputs after submission
+  // Clear form inputs
   nameInput.value = "";
-  dateInput.value="";
-  selectList1.value="";
-  selectList2.value="";
-  selectList3.value="";
-  descriptionInput.value="";
+  dateInput.value = "";
+  selectList1.value = "";
+  selectList2.value = "";
+  selectList3.value = "";
+  descriptionInput.value = "";
 
-  if (resultColumn.style.display === 'none') {
-    resultColumn.style.display = 'block';
-   } //else {
-  //   resultColumn.style.display = 'none';
+  // if (resultColumn.style.display === "none") {
+  //   resultColumn.style.display = "block";
   // }
- 
-  
-  if(priorityP.textContent==='Heigh'){priorityP.style.background="red" }
-  if(priorityP.textContent==='Medium'){priorityP.style.background="yellow"  , priorityP.style.color="black"}
-  if(priorityP.textContent==='Low'){priorityP.style.background="green"}
 
-  // function hideImg(){
-  //   var relaxImg=document.getElementById("relaxImg")
-  //   relaxImg.style.display="none"
-  //   }
-  //   hideImg()
-
+  // Set background color based on priority
+  if (priorityP.textContent === "High") {
+    priorityP.style.background = "red";
+  }
+  if (priorityP.textContent === "Medium") {
+    priorityP.style.background = "yellow";
+    priorityP.style.color = "black";
+  }
+  if (priorityP.textContent === "Low") {
+    priorityP.style.background = "green";
+  }
+  // if (localStorage.length < "0") {
+  //   (img.style.display = "block"), (resultColumn.style.display = "none");
+  // } else {
+  //   (img.style.display = "none"), (resultColumn.style.display = "block");
+  // }
 });
 
 
-// *************************************************************
 
+// *************************************************************************************************
 
+// When Refreshing or Loading the Page => Retrieve todos from local storage and display them
+const todos = JSON.parse(localStorage.getItem("todos")) || [];
+todos.forEach((todo) => {
+  const toDo = document.createElement("div");
+  const nameP = document.createElement("p");
+  const dateP = document.createElement("p");
+  const catP = document.createElement("p");
+  const priorityP = document.createElement("p");
+  const statusP = document.createElement("p");
+  const descriptionP = document.createElement("p");
+  const deleteBtn = document.createElement("button");
+  const editBtn = document.createElement("button");
+
+  toDo.classList.add("row");
+  nameP.classList.add("col-2");
+  dateP.classList.add("col-1");
+  catP.classList.add("col-1");
+  priorityP.classList.add("col-1");
+  statusP.classList.add("col-1");
+  descriptionP.classList.add("col-3");
+  deleteBtn.classList.add("col-1");
+  editBtn.classList.add("col-1");
+
+  nameP.textContent = todo.name;
+  dateP.textContent = todo.date;
+  catP.textContent = todo.cat;
+  priorityP.textContent = todo.priority;
+  statusP.textContent = todo.status;
+  descriptionP.textContent = todo.description;
+  deleteBtn.innerText = "Delete";
+  editBtn.innerText = "Edit";
+  dateP.style.fontSize = "12px";
+  priorityP.style.textAlign = "center";
+  editBtn.style.backgroundColor = "gray";
+  editBtn.style.border = "1px solid";
+  editBtn.style.marginBottom = "19px";
+  editBtn.style.borderRadius = "19px";
+  editBtn.style.width = "60px";
+  editBtn.style.fontSize = "10px";
+  deleteBtn.style.backgroundColor = "gray";
+  deleteBtn.style.border = "1px solid";
+  deleteBtn.style.marginRight = "5px";
+  deleteBtn.style.marginBottom = "19px";
+  deleteBtn.style.borderRadius = "19px";
+  deleteBtn.style.width = "60px";
+  deleteBtn.style.fontSize = "10px";
+
+  // Set background color based on priority
+  if (priorityP.textContent === "High") {
+    priorityP.style.background = "red";
+  }
+  if (priorityP.textContent === "Medium") {
+    priorityP.style.background = "yellow";
+    priorityP.style.color = "black";
+  }
+  if (priorityP.textContent === "Low") {
+    priorityP.style.background = "green";
+  }
+
+  deleteBtn.addEventListener("click", () => {
+    // Remove from localStorage
+    const filteredTodos = todos.filter(
+      (t) =>
+        t.name !== todo.name ||
+        t.date !== todo.date ||
+        t.cat !== todo.cat ||
+        t.priority !== todo.priority ||
+        t.status !== todo.status ||
+        t.description !== todo.description||
+        t.id !== todo.id
+    );
+    localStorage.setItem("todos", JSON.stringify(filteredTodos));
+    location.reload();
+  });
+  
+  
+
+  toDo.appendChild(nameP);
+  toDo.appendChild(dateP);
+  toDo.appendChild(catP);
+  toDo.appendChild(priorityP);
+  toDo.appendChild(statusP);
+  toDo.appendChild(descriptionP);
+  toDo.appendChild(deleteBtn);
+  toDo.appendChild(editBtn);
+  outputDiv9.prepend(toDo);
+  if (localStorage.length < 0) {
+    (img.style.display = "block"), (resultColumn.style.display = "none");
+  } else {
+    (img.style.display = "none"), (resultColumn.style.display = "block");
+  }
+});
